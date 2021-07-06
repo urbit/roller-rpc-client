@@ -1,0 +1,11 @@
+{
+  "openrpcDocument": "./spec.json",
+  "outDir": "./roller-rpc-client",
+  "components": [
+    {
+      "type": "client",
+      "name": "roller-rpc-client",
+      "language": "typescript"
+    }
+  ]
+}
