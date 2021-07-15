@@ -1074,13 +1074,6 @@
           "schema": {
             "$ref": "#/components/schemas/TransferPointParams"
           }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
-          }
         }
       ],
       "result": {
@@ -1120,13 +1113,6 @@
           "required": true,
           "schema": {
             "$ref": "#/components/schemas/SpawnParams"
-          }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
           }
         }
       ],
@@ -1168,13 +1154,6 @@
           "schema": {
             "$ref": "#/components/schemas/ConfigureKeysParams"
           }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
-          }
         }
       ],
       "result": {
@@ -1214,13 +1193,6 @@
           "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
-          }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
           }
         }
       ],
@@ -1262,13 +1234,6 @@
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
-          }
         }
       ],
       "result": {
@@ -1308,13 +1273,6 @@
           "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
-          }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
           }
         }
       ],
@@ -1356,13 +1314,6 @@
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
-          }
         }
       ],
       "result": {
@@ -1402,13 +1353,6 @@
           "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
-          }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
           }
         }
       ],
@@ -1450,13 +1394,6 @@
           "schema": {
             "$ref": "#/components/schemas/AddressParams"
           }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
-          }
         }
       ],
       "result": {
@@ -1497,13 +1434,6 @@
           "schema": {
             "$ref": "#/components/schemas/AddressParams"
           }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
-          }
         }
       ],
       "result": {
@@ -1543,13 +1473,6 @@
           "required": true,
           "schema": {
             "$ref": "#/components/schemas/AddressParams"
-          }
-        },
-        {
-          "name": "raw",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/Raw"
           }
         }
       ],
@@ -2872,11 +2795,6 @@
         "type": "string",
         "title": "Signature",
         "description": "Hex-encoded signature"
-      },
-      "Raw": {
-        "title": "Raw",
-        "description": "Hex-encoded serialized L2 transaction",
-        "type": "string"
       },
       "From": {
         "title": "From",
