@@ -1084,8 +1084,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1131,8 +1131,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1178,8 +1178,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1225,8 +1225,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1272,8 +1272,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1319,8 +1319,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1366,8 +1366,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1413,8 +1413,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1460,8 +1460,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1507,8 +1507,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
@@ -1554,8 +1554,8 @@
         }
       ],
       "result": {
-        "name": "success",
-        "description": "Success response",
+        "name": "txHash",
+        "description": "Hash of the raw transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
         }
