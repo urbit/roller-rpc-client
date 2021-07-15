@@ -1045,7 +1045,7 @@
       ]
     },
     {
-      "name": "transferPoints",
+      "name": "transferPoint",
       "summary": "Transfers a point to an ethereum address",
       "tags": [
         {
@@ -1087,7 +1087,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1134,7 +1134,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1181,7 +1181,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1228,7 +1228,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1275,7 +1275,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1322,7 +1322,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1369,7 +1369,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1416,7 +1416,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1463,7 +1463,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1510,7 +1510,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -1557,7 +1557,7 @@
         "name": "success",
         "description": "Success response",
         "schema": {
-          "$ref": "#/components/schemas/Success"
+          "$ref": "#/components/schemas/Hash"
         }
       }
     },
@@ -2441,26 +2441,31 @@
             "value": [
               {
                 "status": "pending",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x99bb2265705db3228a07c8b76603de923fcb69662fe2844dc6eb083d1feb34ee"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x5c4a29668d21674ab9909a5cdd1de718b055764640b67a5181a003956992c076"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x4e15ff81cf9d0cb7c936ee1a43827764ba0864cfa0682e168888da18589bd7bd"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xf93f2e2ff1be2be4c89cd5460cab710cc698f61038e46982d37894bfb4152b52"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xd3d650daf12b376abd4f1c6e09e3e5028a2a04116d94c8a24ac4fca38e3d49db"
               },
@@ -2471,41 +2476,49 @@
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xcf9f0596d143a7b47ce545f5dacf932fa356a7d017603c6bddb502be35a72e27"
               },
               {
                 "status": "pending",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x4a74c4e92a3cd72cf7dcb68a56fa06ea883c530861497b11b0e03a536cfd2b0b"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x15586ba773fbc858e15fa29af42b093a1006009924b41c504b1aca8f9adc7534"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xdca5272fcf78c19905c0f69f23ef64a7ee123552c68ec73fc84c180c5aa8d6f9"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xe5919e730682356484f2a20913e0e06cb8f6e53a250b329186d7df764d2f9c11"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xfd9055547985e174539a3c83fb429b051cc95fdc0ce7f8c3b1ccd87bc4661e8d"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xda681585f2a342a49f1f459330b813d7e59baebf60425a8f17c37c7769570459"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x9b01e5fe2a366bec8de56806ad8e41306bcefd849775ecdecd4b0b8d5032a34e"
               },
@@ -2516,56 +2529,67 @@
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xf7f7fd97b5618fbb66ddc170917c2734d59c3aa339591fcfbdb414e0d337dd7f"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xdffcb5dcf7dd19d8d57a71ff2c342e09d773ef4cf886d4fd6b3c0e2a745d7394"
               },
               {
                 "status": "pending",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x2e989af50ed43d936b5339d2d9a11d72b58644c6da348d97ecb7ff05dc67702c"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x36a8432358c0c960d2850d048f57e0ceaf98860958ac67d4420a8d8dd1d940cf"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x50e6745917033c473aeda58f59c20956f57e835841e5abc1987dad60f4321133"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x54da669d6a377cad15006b2b5467386675d825119272f27ea384d8d9c029dfd6"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xb84a941b60ce0b2fa5620d0614c52c4debada451452e22b781d571550781572e"
               },
               {
                 "status": "pending",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xcf9f0596d143a7b47ce545f5dacf932fa356a7d017603c6bddb502be35a72e27"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xcdee99e5dc235a7af2f1d4176a3dea8821ad959719d561f4c570b2bf1f2e1dd3"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0xd04c2b4008e4abea15f047487904241d348493643a64ef0bb01d3cba4f3550ad"
               },
               {
                 "status": "confirmed",
+                "ship": "~sampel-palnet",
                 "type": "spawn",
                 "hash": "0x8dad6e8aa1ef58efb99c4a01210e79d16e4f46eb2bb602d4c8f15ab3b8957e64"
               }
@@ -2582,14 +2606,13 @@
             "type": "object",
             "title": "TransactionHistoryData",
             "properties": {
+              "ship": {
+                "$ref": "#/components/schemas/Ship"
+              },
               "status": {
                 "$ref": "#/components/schemas/TransactionStatus"
               },
-              "type": {
-                "type": "string",
-                "title": "L2TransactionType",
-                "description": "One of transfer-point, spawn, configure-keys, escape, cancel-escape, adopt, reject, detach, set-management-proxy, set-spawn-proxy, set-transfer-proxy"
-              },
+              "type": { "$ref": "#/components/schemas/TransactionType" },
               "hash": {
                 "$ref": "#/components/schemas/hash32"
               }
@@ -2624,7 +2647,36 @@
       "name": "cancelTransaction",
       "summary": "Cancels a transaction that hasn't been sent out",
       "paramStructure": "by-name",
-      "params": [],
+      "params": [
+        {
+          "name": "sig",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Signature"
+          }
+        },
+        {
+          "name": "hash",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/hash32"
+          }
+        },
+        {
+          "name": "type",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/TransactionType"
+          }
+        },
+        {
+          "name": "ship",
+          "required": true,
+          "schema": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      ],
       "examples": [
         {
           "name": "cancel-example",
@@ -2638,8 +2690,12 @@
               "value": "0x2461e96f0d709c42f24646a8de1ea13c67ef8a7276e6fa0c03573947e496656f"
             },
             {
-              "name": "spawn",
+              "name": "type",
               "value": "spawn"
+            },
+            {
+              "name": "ship",
+              "value": "~rammel-wisrex"
             }
           ],
           "result": {
@@ -2935,20 +2991,22 @@
         "type": "string",
         "description": "One of: confirmed, pending, sending, confirmed, failed, unknown"
       },
+      "TransactionType": {
+        "type": "string",
+        "title": "TransactionType",
+        "description": "One of transfer-point, spawn, configure-keys, escape, cancel-escape, adopt, reject, detach, set-management-proxy, set-spawn-proxy, set-transfer-proxy"
+      },
       "L2-Transaction": {
         "title": "L2-Transaction",
         "type": "object",
         "description": "Raw L2 transaction as defined in /lib/naive.hoon",
-        "required": ["sig", "tx", "from", "raw"],
+        "required": ["sig", "tx", "from"],
         "properties": {
           "sig": {
             "$ref": "#/components/schemas/Signature"
           },
           "from": {
             "$ref": "#/components/schemas/From"
-          },
-          "raw": {
-            "$ref": "#/components/schemas/Raw"
           },
           "tx": {
             "title": "L2-Transaction-Common-Params",
@@ -3069,6 +3127,11 @@
         "title": "Success",
         "type": "string",
         "description": "Always returns \"ok\""
+      },
+      "Hash": {
+        "title": "Hash",
+        "type": "string",
+        "description": "Keccak-256 (not the standardized SHA3-256) of the given data."
       }
     }
   }
