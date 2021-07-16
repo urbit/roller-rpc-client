@@ -1,6 +1,6 @@
 {
   "openrpcDocument": "./spec.json",
-  "outDir": "./roller-rpc-client",
+  "outDir": "./out",
   "components": [
     {
       "type": "client",

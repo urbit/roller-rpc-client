@@ -1,10 +1,24 @@
-# Build
+# Azimuth Roller Client
+
+The tests expect an urbit on `localhost:8080` running `%aggregator` and `%aggregator-rpc` gall agents.
+
+## Install
+
+```bash
+npm i
+npm run build
+```
+
+## Generate client and docs
 
 ```bash
 rm -rf docs
-open-rpc-generator generate -c open-rpc-generator-config.json
-cd roller-rpc-client/client/typescript
-npm run build
+cd out/client/typescript
+npm install && npm run build
 mv docs ../../../.
 git push origin master
 ```
+
+## Usage
+
+See `./src/roller.tests.ts` for examples of using the RPCs
