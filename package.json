@@ -1,17 +1,17 @@
 {
-  "name": "roller-rpc-client",
+  "name": "roller-rpc-client-generator",
   "version": "0.0.1",
-  "description": "Azimuth Rollup RPC-API Client",
+  "description": "Azimuth Rollup RPC-API Client Generator",
   "scripts": {
     "generate-clients": "open-rpc-generator generate -c open-rpc-generator-config.json",
     "clean": "rm -rf build && mkdir -p build",
-    "build": "npm run clean && npm run generate-clients && npm test",
+    "build": "npm run clean && npm run generate-clients && npm test && rm -rf build",
     "test": "jest"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@open-rpc/generator": "^1.20.0",
+    "@open-rpc/generator": "^1.20.1",
     "@open-rpc/meta-schema": "^1.14.2",
     "@open-rpc/schema-utils-js": "^1.15.0",
     "@types/jest": "26.0.24",

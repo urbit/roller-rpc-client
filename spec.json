@@ -32,7 +32,6 @@
       "params": [
         {
           "name": "ship",
-          "required": true,
           "description": "The @p of the planet (e.g. `~sampel-planet` or 256)",
           "schema": {
             "$ref": "#/components/schemas/Ship"
@@ -41,7 +40,7 @@
       ],
       "result": {
         "name": "point",
-        "description": "Expected response to a valid request",
+        "description": "Expected response to be a valid request",
         "schema": {
           "$ref": "#/components/schemas/Point"
         }
@@ -108,7 +107,6 @@
         {
           "name": "address",
           "summary": "Ethereum address (e.g. 0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/eth-address"
           }
@@ -1056,21 +1054,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/TransferPointParams"
           }
@@ -1096,21 +1091,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/SpawnParams"
           }
@@ -1136,21 +1128,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/ConfigureKeysParams"
           }
@@ -1176,21 +1165,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
@@ -1216,21 +1202,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
@@ -1256,21 +1239,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
@@ -1296,21 +1276,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
@@ -1336,21 +1313,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/SponsorshipParams"
           }
@@ -1376,21 +1350,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/AddressParams"
           }
@@ -1416,21 +1387,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/AddressParams"
           }
@@ -1456,21 +1424,18 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "from",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/From"
           }
         },
         {
           "name": "data",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/AddressParams"
           }
@@ -1706,7 +1671,6 @@
       "params": [
         {
           "name": "ship",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Ship"
           }
@@ -1929,7 +1893,6 @@
       "params": [
         {
           "name": "address",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/eth-address"
           }
@@ -2147,7 +2110,6 @@
       "params": [
         {
           "name": "ship",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Ship"
           }
@@ -2309,7 +2271,6 @@
       "params": [
         {
           "name": "hash",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/hash32"
           }
@@ -2344,7 +2305,6 @@
       "params": [
         {
           "name": "address",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/eth-address"
           }
@@ -2573,28 +2533,24 @@
       "params": [
         {
           "name": "sig",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Signature"
           }
         },
         {
           "name": "hash",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/hash32"
           }
         },
         {
           "name": "type",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/TransactionType"
           }
         },
         {
           "name": "ship",
-          "required": true,
           "schema": {
             "$ref": "#/components/schemas/Ship"
           }

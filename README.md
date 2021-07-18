@@ -21,4 +21,4 @@ git push origin master
 
 ## Usage
 
-See `./src/roller.tests.ts` for examples of using the RPCs
+See `./tests/roller.tests.ts` for examples of using the RPCs
