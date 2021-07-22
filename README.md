@@ -13,10 +13,10 @@ npm run build
 
 ```bash
 rm -rf docs
-cd out/client/typescript
+cd ./client/typescript
 npm install && npm run build
 mv docs ../../../.
-git push origin master
+git add . && git commit -m 'add new docs' && git push origin master
 ```
 
 ## Usage
