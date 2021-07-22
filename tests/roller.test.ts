@@ -1,7 +1,8 @@
 import RollerRPCAPI, {
-  Point,
+  L2Point,
   EthAddress,
   Hash,
+  Ship,
 } from "../client/typescript/src/index";
 
 const api = new RollerRPCAPI({
@@ -25,14 +26,14 @@ test("getRollerConfig", async () => {
 
 test("getPoint", async () => {
   const ship = "~norsyr-torryn";
-  const point: Point = await api.getPoint(ship);
+  const point: L2Point = await api.getPoint(ship);
   expect(point).toHaveProperty("dominion", "l2");
 });
 
 test("getPoints", async () => {
   const address: EthAddress = "0x6deffb0cafdb11d175f123f6891aa64f01c24f7d";
-  const points: Point[] = await api.getPoints(address);
-  expect(points.length).toBeGreaterThan(0);
+  const ships: Ship[] = await api.getPoints(address);
+  expect(ships.length).toBeGreaterThan(0);
 });
 
 test("spawn", async () => {
@@ -45,6 +46,7 @@ test("spawn", async () => {
       address: "0xf48062Ae8BAfD6Ef19CD6cb89db93A0d0ca6ce2",
       ship: "~norsyr-torryn",
     };
-  const hash: Hash = await api.spawn(sig, from, data);
+  const address: EthAddress = "0x6deffb0cafdb11d175f123f6891aa64f01c24f7d";
+  const hash: Hash = await api.spawn(sig, from, address, data);
   expect(typeof hash).toBe("string");
 });
