@@ -1,24 +1,29 @@
 # Azimuth Roller Client
 
-The tests expect an urbit on `localhost:8080` running `%aggregator` and `%aggregator-rpc` gall agents.
-
-## Install
+## Generate Typescript client
 
 ```bash
 npm i
 npm run build
 ```
 
-## Generate client and docs
+## Build Typescript client and docs
 
 ```bash
 rm -rf docs
 cd ./client/typescript
-npm install && npm run build
+npm i && npm run build
 mv docs ../../../.
+# The client docs are hosted as a github page, so we need to push the updated version
 git add . && git commit -m 'add new docs' && git push origin master
 ```
 
-## Usage
+## Test
 
-See `./tests/roller.tests.ts` for examples of using the RPCs
+The tests expect an urbit on `localhost:8080` running `%aggregator` and `%aggregator-rpc` gall agents.
+
+```bash
+npm run test
+```
+
+`./tests/roller.tests.ts` shows some examples of using the RPCs

@@ -5,7 +5,7 @@
   "scripts": {
     "generate-clients": "open-rpc-generator generate -c open-rpc-generator-config.json",
     "clean": "rm -rf build && mkdir -p build",
-    "build": "npm run clean && npm run generate-clients && npm test && rm -rf build",
+    "build": "npm run clean && npm run generate-clients",
     "test": "jest"
   },
   "author": "",
