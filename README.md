@@ -13,7 +13,8 @@ npm run build
 rm -rf docs
 cd ./client/typescript
 npm i && npm run build
-mv docs ../../../.
+mv docs ../../.
+cd ../..
 # The client docs are hosted as a github page, so we need to push the updated version
 git add . && git commit -m 'add new docs' && git push origin master
 ```
