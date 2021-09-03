@@ -95,8 +95,8 @@
       ]
     },
     {
-      "name": "getPoints",
-      "summary": "Returns all the Azimuth points controlled by an ethereum address",
+      "name": "getShips",
+      "summary": "Returns all the ships controlled by an ethereum address",
       "paramStructure": "by-name",
       "params": [
         {
@@ -1853,6 +1853,126 @@
           "$ref": "#/components/schemas/Hash"
         }
       }
+    },
+    {
+      "name": "getOwnedPoints",
+      "summary": "Returns all the ships controlled by an ethereum address as owner proxy",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "address",
+          "summary": "Ethereum address (e.g. 0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
+          "schema": {
+            "$ref": "#/components/schemas/eth-address"
+          }
+        }
+      ],
+      "result": {
+        "name": "points",
+        "schema": {
+          "type": "array",
+          "title": "Ships",
+          "items": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      }
+    },
+    {
+      "name": "getTransferringFor",
+      "summary": "Returns all the ships controlled by an ethereum address as transfer proxy",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "address",
+          "summary": "Ethereum address (e.g. 0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
+          "schema": {
+            "$ref": "#/components/schemas/eth-address"
+          }
+        }
+      ],
+      "result": {
+        "name": "points",
+        "schema": {
+          "type": "array",
+          "title": "Ships",
+          "items": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      }
+    },
+    {
+      "name": "getManagerFor",
+      "summary": "Returns all the ships controlled by an ethereum address as manager proxy",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "address",
+          "summary": "Ethereum address (e.g. 0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
+          "schema": {
+            "$ref": "#/components/schemas/eth-address"
+          }
+        }
+      ],
+      "result": {
+        "name": "points",
+        "schema": {
+          "type": "array",
+          "title": "Ships",
+          "items": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      }
+    },
+    {
+      "name": "getVotingFor",
+      "summary": "Returns all the ships controlled by an ethereum address as voting proxy",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "address",
+          "summary": "Ethereum address (e.g. 0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
+          "schema": {
+            "$ref": "#/components/schemas/eth-address"
+          }
+        }
+      ],
+      "result": {
+        "name": "points",
+        "schema": {
+          "type": "array",
+          "title": "Ships",
+          "items": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      }
+    },
+    {
+      "name": "getSpawningFor",
+      "summary": "Returns all the ships controlled by an ethereum address as spawn proxy",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "address",
+          "summary": "Ethereum address (e.g. 0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
+          "schema": {
+            "$ref": "#/components/schemas/eth-address"
+          }
+        }
+      ],
+      "result": {
+        "name": "points",
+        "schema": {
+          "type": "array",
+          "title": "Ships",
+          "items": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      }
     }
   ],
   "components": {
@@ -1883,8 +2003,8 @@
           }
         }
       },
-      "Networking": {
-        "title": "Networking",
+      "Ownership": {
+        "title": "Ownership",
         "type": "object",
         "properties": {
           "owner": {
@@ -1904,23 +2024,45 @@
           }
         }
       },
-      "Ownership": {
-        "title": "Ownership",
+      "Keys": {
+        "title": "Keys",
         "type": "object",
         "required": [
           "life",
-          "pass",
-          "rift",
-          "sponsor"
+          "suite",
+          "auth",
+          "crypto"
         ],
         "properties": {
           "life": {
             "type": "number",
             "title": "Life"
           },
-          "pass": {
+          "suite": {
+            "type": "number",
+            "title": "Suite"
+          },
+          "auth": {
             "type": "string",
-            "title": "Pass"
+            "title": "Auth"
+          },
+          "crypto": {
+            "type": "string",
+            "title": "Crypto"
+          }
+        }
+      },
+      "Networking": {
+        "title": "Networking",
+        "type": "object",
+        "required": [
+          "keys",
+          "rift",
+          "sponsor"
+        ],
+        "properties": {
+          "keys": {
+            "$ref": "#/components/schemas/Keys"
           },
           "rift": {
             "type": "number",
@@ -1930,7 +2072,7 @@
             "$ref": "#/components/schemas/Sponsor"
           },
           "escape": {
-            "type": "string"
+            "$ref": "#/components/schemas/Ship"
           }
         }
       },
@@ -2066,7 +2208,7 @@
             "type": "string"
           },
           "cryptoSuite": {
-            "type": "string"
+            "type": "number"
           },
           "breach": {
             "type": "boolean",
