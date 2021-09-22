@@ -2,7 +2,9 @@ import { ecdsaSign } from "secp256k1";
 import keccak, { Keccak } from "keccak";
 import { hexToBytes, toHex } from "web3-utils";
 
-import RollerRPCAPI, { L2Data } from "../client/typescript/src/index";
+import RollerRPCAPI, {
+  ConfigureKeysParams,
+} from "../client/typescript/src/index";
 
 import type {
   L2Point,
@@ -12,6 +14,7 @@ import type {
   Signature,
   From,
 } from "../client/typescript/src/index";
+import { ConfigureKeys } from "../client/typescript/build";
 
 const privateKeys = new Map([
   [
@@ -78,32 +81,33 @@ const signMessage = (msg: Hash, address: EthAddress) => {
   return toHex(Buffer.from(ethSignature));
 };
 
-const starAddress: EthAddress = "0x6deffb0cafdb11d175f123f6891aa64f01c24f7d",
-  planetReceivingAddress: EthAddress =
-    "0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26",
-  planetOwnershipAddress: EthAddress =
-    "0x6d654ef2489674d21aed428e8a4ad8ca4820f125",
-  planetMgmtAddress: EthAddress = "0x218f6f87683db546ad47a5dc8b480e5a9b694866",
-  fromStar: From = {
-    ship: "~wanzod",
-    proxy: "own",
-  },
-  fromBalhulTransfer: From = {
-    ship: "~balhul-polsub",
-    proxy: "transfer",
-  },
-  fromBalhulOwn: From = {
-    ship: "~balhul-polsub",
-    proxy: "own",
-  },
-  fromModlepTransfer: From = {
-    ship: "~modlep-fosreg",
-    proxy: "transfer",
-  },
-  fromModlepOwn: From = {
-    ship: "~modlep-fosreg",
-    proxy: "own",
-  };
+const starAddress: EthAddress = "0x6deffb0cafdb11d175f123f6891aa64f01c24f7d";
+const planetReceivingAddress: EthAddress =
+  "0xf48062ae8bafd6ef19cd6cb89db93a0d0ca6ce26";
+const planetOwnershipAddress: EthAddress =
+  "0x6d654ef2489674d21aed428e8a4ad8ca4820f125";
+const planetMgmtAddress: EthAddress =
+  "0x218f6f87683db546ad47a5dc8b480e5a9b694866";
+const fromStar: From = {
+  ship: "~wanzod",
+  proxy: "own",
+};
+const fromBalhulTransfer: From = {
+  ship: "~balhul-polsub",
+  proxy: "transfer",
+};
+const fromBalhulOwn: From = {
+  ship: "~balhul-polsub",
+  proxy: "own",
+};
+const fromModlepTransfer: From = {
+  ship: "~modlep-fosreg",
+  proxy: "transfer",
+};
+const fromModlepOwn: From = {
+  ship: "~modlep-fosreg",
+  proxy: "own",
+};
 
 test("getRollerConfig", async () => {
   const config = await api.getRollerConfig();
@@ -114,6 +118,18 @@ test("getPoint", async () => {
   const ship = "~norsyr-torryn";
   const point: L2Point = await api.getPoint(ship);
   expect(point).toHaveProperty("dominion", "l2");
+});
+
+test("getMissingPoint", async () => {
+  const ship = "~mirnem-picmeb";
+  try {
+    const point: L2Point = await api.getPoint(ship);
+  } catch (point) {
+    if (point instanceof Error) {
+      expect(point).toHaveProperty("message", "Resource not found");
+      expect(point).toHaveProperty("code", -32000);
+    }
+  }
 });
 
 test("getShips", async () => {
@@ -190,11 +206,11 @@ test("~modlep-fosreg accepts the transfer", async () => {
   //    ("sig" is signed using nonce 0)
   //
   const transferData = { address: planetOwnershipAddress, reset: true };
-  //const modlep: L2Point = await api.getPoint("~modlep-fosreg");
+  // const modlep: L2Point = await api.getPoint("~modlep-fosreg");
   const transferHash: Hash = await api.hashTransaction(
     0,
     // ~modlep-fosreg is not spawned yet, since the txs are all pending
-    //modlep.ownership?.transferProxy?.nonce!, // nonce = 0
+    // modlep.ownership?.transferProxy?.nonce!, // nonce = 0
     fromModlepTransfer,
     "transferPoint",
     transferData
@@ -215,15 +231,15 @@ test("...configures keys", async () => {
   //
   //    ("sig" is signed using nonce 0)
   //
-  const configureKeysData = {
+  const configureKeysData: ConfigureKeysParams = {
     encrypt: "0x1234",
     auth: "0xabcd",
-    cryptoSuite: 0,
+    cryptoSuite: "0",
     breach: false,
   };
   const configureKeysHash: Hash = await api.hashTransaction(
     0,
-    //modlep.ownership?.owner?.nonce!, // nonce = 0
+    // modlep.ownership?.owner?.nonce!, // nonce = 0
     fromModlepOwn,
     "configureKeys",
     configureKeysData
@@ -248,7 +264,7 @@ test("and sets management proxy", async () => {
   const mgmtData = { address: planetMgmtAddress };
   const mgmtHash: Hash = await api.hashTransaction(
     1,
-    //modlep.ownership?.owner?.nonce! + 1, // nonce = 1
+    // modlep.ownership?.owner?.nonce! + 1, // nonce = 1
     fromModlepOwn,
     "setManagementProxy",
     mgmtData
@@ -294,7 +310,6 @@ test("~wanzod spawns ~balhul-polsub", async () => {
     starAddress,
     spawnData
   );
-  console.log(spawnTxHash);
   expect(spawnTxHash).toBeTruthy();
   const txStatus = await api.getTransactionStatus(spawnTxHash);
   expect(txStatus).toEqual("pending");
@@ -329,10 +344,10 @@ test("and configures its keys", async () => {
   //    ("sig" is signed using nonce 1)
   //
 
-  const configureKeysData = {
+  const configureKeysData: ConfigureKeysParams = {
     encrypt: "0x1234",
     auth: "0xabcd",
-    cryptoSuite: 0,
+    cryptoSuite: "0",
     breach: false,
   };
   const configureKeysHash: Hash = await api.hashTransaction(
@@ -419,7 +434,7 @@ test("and configures new keys", async () => {
   const configureKeysData = {
     encrypt: "0x5678",
     auth: "0xefab",
-    cryptoSuite: 0,
+    cryptoSuite: "0",
     breach: false,
   };
   const configureKeysHash: Hash = await api.hashTransaction(
@@ -440,54 +455,3 @@ test("and configures new keys", async () => {
   const txStatus = await api.getTransactionStatus(configureTxHash);
   expect(txStatus).toEqual("pending");
 });
-
-// test("batch L2 transactions", async () => {
-//   // ...and configures keys so it's ready to boot
-//   //
-//   //    ("sig" is signed using nonce 3)
-//   //
-
-//   api.startBatch();
-//   console.log("batch started");
-//   const configureKeysData = {
-//     encrypt: "0x5678",
-//     auth: "0xefab",
-//     cryptoSuite: 0,
-//     breach: false,
-//   };
-
-//   const configureKeysHash: Hash = await api.hashTransaction(
-//     3,
-//     fromBalhulOwn,
-//     "configureKeys",
-//     configureKeysData
-//   );
-
-//   const hash1 = await api.configureKeys(
-//     signMessage(configureKeysHash, planetOwnershipAddress),
-//     fromBalhulOwn,
-//     planetOwnershipAddress,
-//     configureKeysData
-//   );
-//   console.log(hash1);
-//   console.log("tx 1 sent");
-
-//   const hash2 = await api.configureKeys(
-//     signMessage(configureKeysHash, planetOwnershipAddress),
-//     fromBalhulOwn,
-//     planetOwnershipAddress,
-//     configureKeysData
-//   );
-//   console.log("tx 2 sent");
-
-//   console.log(hash2);
-
-//   api.stopBatch();
-//   console.log("batch stopped");
-
-//   const txStatus1 = await api.getTransactionStatus(hash1);
-//   const txStatus2 = await api.getTransactionStatus(hash2);
-
-//   expect(txStatus1).toEqual("pending");
-//   expect(txStatus2).toEqual("pending");
-// });
