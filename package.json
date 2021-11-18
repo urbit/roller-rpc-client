@@ -1,13 +1,13 @@
 {
   "name": "roller-api",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "private": true,
   "description": "Azimuth L2 Rollup API client generator",
   "scripts": {
     "generate-clients": "open-rpc-generator generate -c open-rpc-generator-config.json",
     "clean": "rm -rf build && mkdir -p build",
     "build": "npm run clean && npm run generate-clients",
-    "invite-flow": "jest"
+    "client-test": "jest"
   },
   "author": "~norsyr-torryn",
   "license": "MIT",

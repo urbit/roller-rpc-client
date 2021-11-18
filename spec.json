@@ -1,7 +1,7 @@
 {
   "openrpc": "1.2.6",
   "info": {
-    "version": "0.1.8",
+    "version": "0.1.12",
     "title": "Roller RPC API",
     "license": {
       "name": "MIT"
@@ -14,7 +14,7 @@
       "description": "This assumes `%roller-rpc.hoon` running on a test ship"
     },
     {
-      "url": "http://roller-tmp.urbit.org/v1/roller",
+      "url": "https://roller-tmp.urbit.org/v1/roller",
       "name": "Ropsten",
       "description": "Roller Agent on Ropsten"
     },
@@ -24,9 +24,19 @@
       "description": "This assumes `%azimuth-rpc.hoon` running on a test ship"
     },
     {
-      "url": "http://roller-tmp.urbit.org/v1/azimuth",
+      "url": "https://roller-tmp.urbit.org/v1/azimuth",
       "name": "Ropsten",
       "description": "Azimuth agent on Ropsten"
+    },
+    {
+      "url": "https://roller.urbit.org/v1/roller",
+      "name": "Mainnet",
+      "description": "Roller Agent on Mainnet"
+    },
+    {
+      "url": "https://roller.urbit.org/v1/azimuth",
+      "name": "Mainnet",
+      "description": "Azimuth agent on Mainnet"
     }
   ],
   "methods": [
@@ -1364,6 +1374,27 @@
       }
     },
     {
+      "name": "spawnsRemaining",
+      "summary": "Returns the number of points that haven't been spawned by a star or galaxy",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "ship",
+          "schema": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      ],
+      "result": {
+        "name": "spawns remaining",
+        "description": "Number of spawns the point has left",
+        "schema": {
+          "type": "number",
+          "title": "SpawnsLeft"
+        }
+      }
+    },
+    {
       "name": "whenNextBatch",
       "summary": "Timestamp of when the next L2 batch will be submitted",
       "paramStructure": "by-name",
@@ -1630,16 +1661,13 @@
     },
     {
       "name": "getNonce",
-      "summary": "Current nonce used by the Roller",
+      "summary": "Latest nonce (counting pending transactions) for the proxy of the given ship",
       "paramStructure": "by-name",
-      "params": [],
-      "examples": [
+      "params": [
         {
-          "name": "nonce-example",
-          "params": [],
-          "result": {
-            "name": "nonce",
-            "value": 18
+          "name": "from",
+          "schema": {
+            "$ref": "#/components/schemas/From"
           }
         }
       ],
@@ -1766,8 +1794,47 @@
       }
     },
     {
+      "name": "hashRawTransaction",
+      "summary": "Returns the hash of the serialized signature and raw bytes of the l2 tx. Used as unique identifier of a tx submitted to a L2 roller",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "sig",
+          "schema": {
+            "$ref": "#/components/schemas/Signature"
+          }
+        },
+        {
+          "name": "from",
+          "schema": {
+            "$ref": "#/components/schemas/From"
+          }
+        },
+        {
+          "name": "tx",
+          "schema": {
+            "$ref": "#/components/schemas/TransactionType"
+          }
+        },
+        {
+          "name": "data",
+          "schema": {
+            "$ref": "#/components/schemas/L2Data"
+          }
+        }
+      ],
+      "result": {
+        "name": "Hash",
+        "description": "Hash of the signature + L2 raw transaction",
+        "schema": {
+          "$ref": "#/components/schemas/Hash"
+        }
+      }
+    },
+    {
       "name": "hashTransaction",
-      "summary": "Returns an unsigned L2 transaction, ready to be signed",
+      "deprecated": true,
+      "summary": "DEPRECATED: Currently equivalent to prepareForSigning.",
       "paramStructure": "by-name",
       "params": [
         {
@@ -1800,6 +1867,85 @@
         "description": "Hash of the L2 transaction",
         "schema": {
           "$ref": "#/components/schemas/Hash"
+        }
+      }
+    },
+    {
+      "name": "getUnsignedTx",
+      "deprecated": true,
+      "summary": "Returns a hash of the unsigned L2 transaction, following the format found at https://urbit.org/docs/azimuth/l2/bytestring#unsigned",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "nonce",
+          "schema": {
+            "$ref": "#/components/schemas/Nonce"
+          }
+        },
+        {
+          "name": "from",
+          "schema": {
+            "$ref": "#/components/schemas/From"
+          }
+        },
+        {
+          "name": "tx",
+          "schema": {
+            "$ref": "#/components/schemas/TransactionType"
+          }
+        },
+        {
+          "name": "data",
+          "schema": {
+            "$ref": "#/components/schemas/L2Data"
+          }
+        }
+      ],
+      "result": {
+        "name": "Hash",
+        "description": "Hash of the L2 transaction",
+        "schema": {
+          "$ref": "#/components/schemas/Hash"
+        }
+      }
+    },
+    {
+      "name": "prepareForSigning",
+      "deprecated": true,
+      "summary": "Returns a serialized L2 transaction, with the appropiate headers, and reversed endianness. Useful to be used together with, for example, Metamask personal_sign method",
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "nonce",
+          "schema": {
+            "$ref": "#/components/schemas/Nonce"
+          }
+        },
+        {
+          "name": "from",
+          "schema": {
+            "$ref": "#/components/schemas/From"
+          }
+        },
+        {
+          "name": "tx",
+          "schema": {
+            "$ref": "#/components/schemas/TransactionType"
+          }
+        },
+        {
+          "name": "data",
+          "schema": {
+            "$ref": "#/components/schemas/L2Data"
+          }
+        }
+      ],
+      "result": {
+        "name": "SerializedTx",
+        "description": "Hex-encoded string representation of the L2 transaction",
+        "schema": {
+          "title": "SerializedTx",
+          "type": "string"
         }
       }
     },
@@ -1946,6 +2092,32 @@
           "$ref": "#/components/schemas/NaiveState"
         }
       }
+    },
+    {
+      "name": "getSponsoredPoints",
+      "summary": "Retrieves sponsees of the given ship, together with a list of points requesting to be sponsored",
+      "tags": [
+        {
+          "name": "point"
+        }
+      ],
+      "paramStructure": "by-name",
+      "params": [
+        {
+          "name": "ship",
+          "description": "The @p of the ponsor (e.g. `~sampel-planet` or 256)",
+          "schema": {
+            "$ref": "#/components/schemas/Ship"
+          }
+        }
+      ],
+      "result": {
+        "name": "points",
+        "description": "Expected response to be a valid request",
+        "schema": {
+          "$ref": "#/components/schemas/SponsoredPoints"
+        }
+      }
     }
   ],
   "components": {
@@ -1973,6 +2145,22 @@
           },
           "ownership": {
             "$ref": "#/components/schemas/Ownership"
+          }
+        }
+      },
+      "SponsoredPoints": {
+        "title": "SponsoredPoints",
+        "type": "object",
+        "properties": {
+          "residents": {
+            "type": "array",
+            "title": "Residents",
+            "items": { "$ref": "#/components/schemas/Ship" }
+          },
+          "requests": {
+            "type": "array",
+            "title": "SponsorRequests",
+            "items": { "$ref": "#/components/schemas/Ship" }
           }
         }
       },
@@ -2289,7 +2477,9 @@
         "required": [
           "nextBatch",
           "frequency",
-          "refreshTime",
+          "rollerResendTime",
+          "azimuthRefreshRate",
+          "rollerUpdateRate",
           "chainId",
           "contract"
         ],
@@ -2302,10 +2492,20 @@
             "title": "Frequency",
             "description": "How often the Roller sends out a new batch"
           },
-          "refreshTime": {
+          "rollerResendTime": {
             "type": "number",
-            "title": "RefreshTime",
+            "title": "RollerResendTime",
+            "description": "How ofthen the Roller retries to send a batch"
+          },
+          "rollerUpdateRate": {
+            "type": "number",
+            "title": "RollerUpdateRate",
             "description": "How ofthen the Roller updates its state"
+          },
+          "azimuthRefreshRate": {
+            "type": "number",
+            "title": "AzimuthRefreshRate",
+            "description": "How often the Azimuth agent checks for L1 updates"
           },
           "chainId": {
             "type": "number",
@@ -2361,7 +2561,7 @@
               "type": "object",
               "title": "Operator",
               "properties": {
-                "operator": { "type": "string" },
+                "operator": { "type": "string", "title": "OperatorAddress" },
                 "addresses": {
                   "type": "array",
                   "title": "OperatorAddresses",
@@ -2374,5 +2574,9 @@
         }
       }
     }
+  },
+  "externalDocs": {
+    "url": "https://urbit.org/docs/azimuth/l2",
+    "description": "Documentation of the technical details of naive rollups."
   }
 }
