@@ -10,6 +10,8 @@ npm run build
 ## Build Typescript client and docs
 
 ```bash
+# update spec.json with the newest version
+npm i && npm run build
 rm -rf docs
 cd ./client/typescript
 npm i && npm run build
